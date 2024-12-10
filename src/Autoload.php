@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Pest\PluginName;
+namespace Pest\Phico;
 
 use Pest\Plugin;
 use PHPUnit\Framework\TestCase;
