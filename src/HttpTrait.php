@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Phico\Pest;
 
+use Phico\Phico;
 use Phico\Http\{Request, Response};
 use PHPUnit\Framework\TestCase;
 
@@ -17,8 +18,6 @@ trait HttpTrait
      */
     public function get(string $uri, array $options = []): Response
     {
-        return response();
-
         // boot application
         $app = $this->boot();
 
@@ -41,12 +40,28 @@ trait HttpTrait
      */
     protected function boot(): Phico
     {
+        $app = phico();
+        // process the app support files
+        include path("boot/container.php");
+        include path("boot/events.php");
+        include path("boot/routes.php");
+        include path("boot/middleware.php");
+
+        return $app;
     }
 
-    // protected function make(
-    //     string $uri,
-    //     array $data = [],
-    //     array $options = []
-    // ): Request {
-    // }
+    protected function make(
+        string $uri,
+        array $data = [],
+        array $options = []
+    ): Request {
+        return new Request(
+            "GET",
+            $uri,
+            $options["headers"] ?? [],
+            $options["input"] ?? [],
+            $options["uploads"] ?? [],
+            $options["vars"] ?? []
+        );
+    }
 }
