@@ -1,6 +1,6 @@
 {
-    "name": "pestphp/pest-plugin-phico",
-    "description": "The Pest Phico plugin",
+    "name": "phico/pest-plugin",
+    "description": "The Pest plugin for Phico",
     "keywords": [
         "php",
         "framework",
@@ -14,16 +14,27 @@
     "require": {
         "php": "^8.2",
         "pestphp/pest": "^3.0.0",
-        "pestphp/pest-plugin": "^3.0.0"
+        "pestphp/pest-plugin": "^3.0.0",
+        "phico/phico": "dev-main"
     },
     "autoload": {
         "psr-4": {
-            "Pest\\Phico\\": "src/"
+            "Phico\\Pest\\": "src/"
         },
         "files": [
             "src/Autoload.php"
         ]
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "~/Remote/debian/home/phico-php/phico"
+        },
+        {
+            "type": "path",
+            "url": "~/Remote/debian/home/phico-php/router"
+        }
+    ],
     "require-dev": {
         "pestphp/pest-dev-tools": "^3.0.0"
     },
