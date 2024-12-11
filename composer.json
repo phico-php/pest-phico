@@ -28,11 +28,11 @@
     "repositories": [
         {
             "type": "path",
-            "url": "~/Remote/debian/home/phico-php/phico"
+            "url": "/home/dev/phico-php/phico"
         },
         {
             "type": "path",
-            "url": "~/Remote/debian/home/phico-php/router"
+            "url": "/home/dev/phico-php/router"
         }
     ],
     "require-dev": {
