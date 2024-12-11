@@ -1,11 +1,14 @@
 <?php
 
+use Phico\Http\{Request, Response};
 use function Phico\Pest\get;
 
 it('can be accessed on the `$this` closure', function () {
-    $this->get("/path/to");
+    $response = $this->get("/path/to");
+    expect($response)->toBeInstanceOf(Response::class);
 });
 
 it("can be accessed as function", function () {
-    get("/path/to");
+    $response = get("/path/to");
+    expect($response)->toBeInstanceOf(Response::class);
 });
